@@ -1,4 +1,4 @@
-# Algoritmos_Y_Programaci-n_UBA
+# Algoritmos_Y_Programación_UBA
 
 # Resumen de la Materia
 
