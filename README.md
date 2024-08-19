@@ -77,15 +77,4 @@
   - Uso de punteros y gestión de memoria dinámica en C.
 
 - **Implementación de TDA (Tipos de Datos Abstractos):** 
-  - Creación de TDA utilizando memoria dinámica y sin memoria dinámica.
-
-## 8. Exámenes y Recuperatorios
-- **Exámenes parciales:** 
-  - Evaluación de conocimientos en estructuras de control, secuencias, archivos, recursión, y lenguaje C.
-
-- **Recuperatorios:** 
-  - Oportunidad para recuperar exámenes parciales.
-
-- **Cierre de la materia:** 
-  - Revisión final de los temas y conclusión del curso.
-
+  - Creación de TDA utilizando memoria dinámica y sin memoria dinámica..
