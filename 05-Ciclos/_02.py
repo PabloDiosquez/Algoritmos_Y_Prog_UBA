@@ -1,6 +1,3 @@
-# Escribir una función que reciba un número entero k e imprima su descomposición
-# en factores primos.
-
 from helpers import es_divisible, es_primo, obtener_exponente_en_factorizacion
 
 def imprimir_factorizacion_primos(numero: int) -> None:
