@@ -1,0 +1,15 @@
+Dallas Cowboys,Shakira,2024-01-15,3
+Dallas Cowboys,Ricky Martin,2024-02-10,1
+New England Patriots,Juanes,2024-03-05,2
+New England Patriots,Thalía,2024-04-20,4
+San Francisco 49ers,Marc Anthony,2024-05-12,5
+San Francisco 49ers,Gloria Estefan,2024-06-08,3
+Green Bay Packers,Enrique Iglesias,2024-07-14,1
+Green Bay Packers,Paulina Rubio,2024-08-21,2
+Pittsburgh Steelers,Carlos Vives,2024-09-30,3
+Pittsburgh Steelers,Natalia Lafourcade,2024-10-06,2
+Miami Dolphins,Chayanne,2024-11-03,4
+Miami Dolphins,Alejandro Fernández,2024-12-12,3
+Seattle Seahawks,Maná,2025-01-18,5
+Seattle Seahawks,Rosalia,2025-02-25,1
+Denver Broncos,Luis Fonsi,2025-03-20,2
