@@ -8,29 +8,48 @@
 # -curar() que recibe una cantidad de vida a regenerar. La vida máxima no se modifica. Si el personaje está muerto, debe lanzar una excepción.
 
 class Personaje:
-    def __init__(self, daño_ataque):
-        self.vida = 100
-        self.daño_ataque = daño_ataque
+    """
+    Clase que representa un personaje en un videojuego, con vida y capacidad de ataque.
+    Atributos de un personaje:
+        >> vida (int): La cantidad de vida del personaje, limitada entre 0 y 100.
+        >> ataque (int): El daño que el personaje hace al atacar.
+    """
 
-    def esta_muerto(self):
+    def __init__(self, ataque: int):
+        """
+        Inicializa un personaje con 100 de vida y un daño de ataque específico.
+        """
+        self.vida = 100
+        self.ataque = ataque
+
+    def esta_muerto(self) -> bool:
+        """
+        Indica si el personaje está muerto.
+        """
         return self.vida == 0
-    
-    def atacar(self, otro):
+
+    def atacar(self, otro: 'Personaje'):
+        """
+        Ataca a otro personaje, reduciendo su vida en función del daño de ataque.
+        Si el personaje actual o el otro están muertos, lanza una excepción.
+        """
         if self.esta_muerto():
-            raise Exception('Personaje muerto')
+            raise Exception('El personaje está muerto y no puede atacar.')
         if otro.esta_muerto():
-            raise Exception('El personaje al cual se quiere atacar está muerto')
-        
-        if otro.vida - self.daño_ataque > 0:
-            otro.vida += self.daño_ataque
-        else:
+            raise Exception('El personaje a atacar ya está muerto.')
+
+        otro.vida -= self.ataque
+        if otro.vida < 0:
             otro.vida = 0
 
-    def curar(self, cant_vida):
+    def curar(self, cant_vida: int):
+        """
+        Cura al personaje, incrementando su vida hasta un máximo de 100.
+        Si el personaje está muerto, lanza una excepción.
+        """
         if self.esta_muerto():
-            raise Exception('El personaje está muerto')
+            raise Exception('El personaje está muerto y no puede ser curado.')
 
-        if self.vida + cant_vida <= 100:
-            self.vida += cant_vida
-        else:
+        self.vida += cant_vida
+        if self.vida > 100:
             self.vida = 100
