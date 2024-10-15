@@ -38,11 +38,9 @@ class Personaje:
         if otro.esta_muerto():
             raise Exception('El personaje a atacar ya está muerto.')
 
-        otro.vida -= self.ataque
-        if otro.vida < 0:
-            otro.vida = 0
+        otro.vida = max(otro.vida - self.ataque, 0)
 
-    def curar(self, cant_vida: int):
+    def curar(self, vida: int):
         """
         Cura al personaje, incrementando su vida hasta un máximo de 100.
         Si el personaje está muerto, lanza una excepción.
@@ -50,6 +48,4 @@ class Personaje:
         if self.esta_muerto():
             raise Exception('El personaje está muerto y no puede ser curado.')
 
-        self.vida += cant_vida
-        if self.vida > 100:
-            self.vida = 100
+        self.vida = min(self.vida + vida, 100)
