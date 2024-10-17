@@ -4,3 +4,31 @@
 
 # Nota: La funcion debe ser in-place (no devolver una nueva lista) y se debe mantener el orden relativo de las fechas.
 
+def hay_seguridad(fecha: str) -> bool:
+    """
+    Verifica si una fecha tiene suficiente seguridad para cubrir el evento.
+    """
+    pass  # Implementación de la lógica para verificar la seguridad
+
+
+def eliminar_fechas_inseguras(fechas: list) -> None:
+    """
+    Elimina in-place todas las fechas en la lista proporcionada donde la seguridad no es suficiente.
+
+    Modifica la lista original eliminando aquellas fechas que no cumplen con los requisitos de seguridad.
+    El orden relativo de las fechas seguras se mantiene.
+    """
+    _eliminar_fechas_inseguras(fechas, len(fechas) - 1)
+
+
+def _eliminar_fechas_inseguras(fechas: list, index: int) -> None:
+    """
+    Función auxiliar recursiva para eliminar las fechas inseguras de la lista.
+    """
+    if index == -1:
+        return
+
+    if not hay_seguridad(fechas[index]):
+        fechas.pop(index)
+
+    _eliminar_fechas_inseguras(fechas, index - 1)
