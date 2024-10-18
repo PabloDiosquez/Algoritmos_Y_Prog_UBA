@@ -19,6 +19,7 @@
 # La representación interna de la clase es a criterio, pero debe ser acorde al comportamiento
 # y no agregar complejidad.
 
+
 class Semaforo:
     """
     La clase Semaforo simula un semáforo con tres luces: roja, amarilla y verde.
