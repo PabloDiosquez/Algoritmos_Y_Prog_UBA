@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * @brief Repite una cadena de texto un número dado de veces y devuelve la cadena resultante.
@@ -32,3 +34,26 @@ char* repetir(const char* s, size_t n) {
     buf[len * n] = '\0';                  
     return buf;
 }
+
+/**
+ * @brief Programa principal que demuestra el uso de la función `repetir`.
+ *
+ * @return 0 si el programa se ejecuta correctamente.
+ *         1 si ocurre un error en la asignación de memoria.
+ *
+ * @note La memoria asignada para la cadena repetida se libera con `free` antes de finalizar
+ *       el programa.
+ */
+int main(void) {
+    char s[] = "hola";                  
+    char* r = repetir(s, 3);            
+
+    if (r == NULL) {                    
+        printf("Algo salió mal :(\n");
+        return 1;                      
+    }
+
+    printf("%s\n", r);                  
+    free(r);                            
+    return 0;          
+}                 
