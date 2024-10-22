@@ -56,3 +56,46 @@ void f() {
 
     free(p);                           
 }
+
+/*
+2. Considerar el siguiente ejemplo. ¿La invocación a free realmente libera la me-
+moria apuntada por el puntero a 
+
+  int *a = malloc(42);
+  int *b = a;
+  free(b);
+
+¿La invocación a free realmente libera la memoria apuntada por el puntero a?
+
+Sí, la invocación a free(b) libera la memoria apuntada por el puntero a.
+
+Explicación:
+
+1. Asignación de memoria:
+   int *a = malloc(42);
+   - La función malloc asigna 42 bytes de memoria en el heap y devuelve un puntero a la primera 
+   dirección de ese bloque de memoria. El puntero a apunta a esta ubicación.
+
+2. Asignación de b:
+   int *b = a;
+   - El puntero b se asigna para apuntar a la misma dirección de memoria que a. Esto significa que
+    tanto a como b apuntan al mismo bloque de memoria en el heap.
+
+3. Liberación de memoria:
+   free(b);
+   - Al invocar free(b), se libera el bloque de memoria al que b (y también a) apuntan. Después de
+    esta operación, la memoria ya no está asignada, y el uso de los punteros a o b sin reasignarlos sería un comportamiento indefinido.
+
+Nota importante:
+
+Después de la llamada a free(b), los punteros a y b siguen apuntando a la misma dirección de memoria,
+pero esa memoria ya no está reservada. Por lo tanto, intentar acceder a esa memoria después de free
+puede causar errores en tiempo de ejecución o comportamiento impredecible. Es una buena práctica 
+establecer los punteros a NULL después de liberar la memoria para evitar accesos accidentales:
+
+    free(b);
+    a = NULL;
+    b = NULL;
+
+De esta manera, queda claro que los punteros ya no están apuntando a memoria válida.
+*/
