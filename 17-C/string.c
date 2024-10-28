@@ -47,6 +47,33 @@ char *strcpy(char *dest, const char *orig) {
 
 // char * strncpy(char * dest, const char * orig, size_t n);
 
+/**
+ * @brief Copia hasta `n` caracteres de una cadena de origen a una cadena de destino.
+ * 
+ * Esta función implementa una versión personalizada de `strncpy` de la biblioteca `<string.h>`.
+ * Copia como máximo `n` caracteres de la cadena `orig` a la cadena `dest`. Si la longitud de `orig`
+ * es menor que `n`, se rellenan los caracteres restantes en `dest` con el carácter nulo (`'\0'`).
+ * La cadena `dest` debe tener suficiente espacio para almacenar `n` caracteres.
+ * 
+ * @param dest Puntero al arreglo de destino donde se copiará la cadena.
+ * @param orig Puntero a la cadena de caracteres de origen.
+ * @param n Número máximo de caracteres a copiar de `orig` a `dest`.
+ * @return char* Retorna un puntero a la cadena de destino `dest`.
+ */
+char *strncpy(char *dest, const char *orig, size_t n) {
+    size_t i;
+
+    for (i = 0; i < n && orig[i] != '\0'; i++) {
+        dest[i] = orig[i];
+    }
+
+    for (; i < n; i++) {
+        dest[i] = '\0';
+    }
+    return dest;
+}
+
+
 // int strcmp(const char * s1, const char * s2);
 
 // int strncmp(const char * s1, const char * s2, size_t n);
