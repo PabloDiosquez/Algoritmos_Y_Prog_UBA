@@ -76,6 +76,32 @@ char *strncpy(char *dest, const char *orig, size_t n) {
 
 // int strcmp(const char * s1, const char * s2);
 
+/**
+ * @brief Compara dos cadenas de caracteres.
+ * 
+ * Esta función implementa una versión personalizada de la función estándar `strcmp` de la biblioteca `<string.h>`.
+ * Compara carácter a carácter las cadenas `s1` y `s2`. Retorna un valor negativo si `s1` es menor que `s2`,
+ * cero si son iguales, y un valor positivo si `s1` es mayor que `s2`.
+ * 
+ * @param s1 Puntero a la primera cadena de caracteres.
+ * @param s2 Puntero a la segunda cadena de caracteres.
+ * @return int Un valor negativo si `s1` es menor que `s2`, 0 si son iguales, o un valor positivo si `s1` es mayor que `s2`.
+ */
+int strcmp(const char *s1, const char *s2) {
+    while (*s1 != '\0' && *s2 != '\0') {
+        unsigned char c1 = (unsigned char)(*s1++);
+        unsigned char c2 = (unsigned char)(*s2++);
+        
+        if (c1 < c2) {
+            return -1; 
+        } else if (c1 > c2) {
+            return 1; 
+        }
+    }
+
+    return (unsigned char)(*s1) - (unsigned char)(*s2);
+}
+
 // int strncmp(const char * s1, const char * s2, size_t n);
 
 // char * strcat(char * dest, const char * orig);
