@@ -106,6 +106,65 @@ int strcmp(const char *s1, const char *s2) {
 
 // char * strcat(char * dest, const char * orig);
 
+/**
+ * @brief Concatenar dos cadenas de caracteres.
+ * 
+ * Esta función implementa una versión personalizada de la función estándar `strcat` de la biblioteca `<string.h>`.
+ * La cadena `orig` se añade al final de la cadena `dest`. Se asume que `dest` tiene suficiente espacio
+ * para contener la concatenación de ambas cadenas.
+ * 
+ * @param dest Puntero a la cadena de destino.
+ * @param orig Puntero a la cadena de origen que se va a concatenar.
+ * @return char* Un puntero a la cadena de destino.
+ */
+char *strcat(char *dest, const char *orig) {
+    size_t i = 0;
+    while (dest[i] != '\0') {
+        i++;
+    }
+
+    size_t j = 0;
+    while (orig[j] != '\0') {
+        dest[i] = orig[j];
+        j++;
+        i++;
+    }
+    dest[i] = '\0';
+    
+    return dest; 
+}
+
+/**
+ * @brief Concatenar dos cadenas de caracteres.
+ * 
+ * Esta función implementa una versión optimizada de la función estándar `strcat` de la biblioteca `<string.h>`.
+ * La cadena `orig` se añade al final de la cadena `dest`. Se asume que `dest` tiene suficiente espacio
+ * para contener la concatenación de ambas cadenas.
+ * 
+ * @param dest Puntero a la cadena de destino.
+ * @param orig Puntero a la cadena de origen que se va a concatenar.
+ * @return char* Un puntero a la cadena de destino.
+ */
+char *strcat(char *dest, const char *orig) {
+    if (dest == NULL || orig == NULL) {
+        return dest; 
+    }
+
+    char *ptr = dest;
+    while (*ptr != '\0') {
+        ptr++; 
+    }
+
+    while (*orig != '\0') {
+        *ptr++ = *orig++; 
+    }
+
+    *ptr = '\0'; 
+
+    return dest; 
+}
+
+
 // void * memmove(void * dest, const void * src, size_t n);
 
 // void * memcpy(void * dest, const void * src, size_t n);
