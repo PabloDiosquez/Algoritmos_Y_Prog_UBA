@@ -34,8 +34,3 @@ void imprimir_slogan(char *nombre, int n){
 
     printf("\n");
 }
-
-int main(void){
-    imprimir_slogan("Simona", 3);  // Imprime "Si, Si, Si, Simona Siiii"
-    return 0;
-}
