@@ -6,32 +6,6 @@
 //     double y;
 // };
 
-// Implemente además las siguientes primitivas:
-
-// punto_t * punto_crear(double, double);
-
-// void punto_destruir(punto_t *);
-
-// punto_t * punto_copiar(punto_t *, const punto_t *);
-
-// punto_t * punto_clonar(const punto_t *);
-
-// double punto_get_x(const punto_t *);
-
-// double punto_get_y(const punto_t *);
-
-// double punto_set_x(punto_t *, double);
-
-// double punto_set_y(punto_t *, double);
-
-// punto_t * punto_sumar(punto_t *, const punto_t *);
-
-// punto_t * punto_restar(punto_t *, const punto_t *);
-
-// double punto_distancia(const punto_t *, const punto_t *);
-
-// double punto_norma(const punto_t *);
-
 #include <stdlib.h>
 #include <math.h>
  
@@ -201,14 +175,38 @@ punto_t *punto_restar(punto_t *res, const punto_t *punto) {
     return res;
 }
 
-double punto_distancia(const punto_t *p, const punto_t *q){
-    if(p == NULL || q == NULL){
+/**
+ * @brief Calcula la distancia euclidiana entre dos puntos en el plano.
+ *
+ * @param p Puntero al primer punto.
+ * @param q Puntero al segundo punto.
+ * @return La distancia euclidiana entre los puntos `p` y `q`, o -1.0 si alguno de los punteros es NULL.
+ *
+ * @note La distancia siempre será un valor no negativo, excepto en caso de punteros NULL donde se retorna -1.0.
+ */
+double punto_distancia(const punto_t *p, const punto_t *q) {
+    if (p == NULL || q == NULL) {
         return -1.0;
     }
 
     double dx = p->x - q->x;
     double dy = p->y - q->y;
 
-    return sqrt(pow(dx, 2) + pow(dy, 2));
+    return sqrt(dx * dx + dy * dy);
+}
 
+/**
+ * @brief Calcula la norma (módulo) de un punto en el plano, interpretado como un vector.
+ *
+ * @param p Puntero al punto cuyo módulo se desea calcular.
+ * @return La norma del punto `p`, o -1.0 si el puntero es NULL.
+ *
+ * @note La norma es siempre un valor no negativo, excepto en caso de punteros NULL donde se retorna -1.0.
+ */
+double punto_norma(const punto_t *p) {
+    if (p == NULL) {
+        return -1.0;
+    }
+
+    return sqrt(p->x * p->x + p->y * p->y);
 }
