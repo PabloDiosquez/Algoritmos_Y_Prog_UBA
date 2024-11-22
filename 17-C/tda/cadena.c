@@ -37,8 +37,19 @@ cadena_t *cadena_crear(const char *s) {
     return cadena;
 }
 
+// Destruye una estructura cadena_t, liberando toda la memoria asociada.
+/**
+ * @brief Libera la memoria asociada a una estructura cadena_t y su cadena.
+ *
+ * @param cadena Puntero a la estructura cadena_t a destruir. Puede ser NULL.
+ */
+void cadena_destruir(cadena_t *cadena) {
+    if (cadena != NULL) {
+        free(cadena->str); 
+        free(cadena);      
+    }
+}
 
-// void cadena_destruir(cadena_t *);
 
 // cadena_t * cadena_copiar(cadena_t *, const cadena_t *);
 
