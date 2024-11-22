@@ -54,5 +54,49 @@ complejo_t *complejo_copiar(complejo_t *dest, const complejo_t *orig){
 }
 
 complejo_t *complejo_clonar(const complejo_t *orig){
-    
+    if(orig == NULL){
+        return NULL;
+    }
+    complejo_t *nuevo = malloc(sizeof(complejo_t));
+    if(nuevo == NULL){
+        return NULL;
+    }
+
+    nuevo->re = orig->re;
+    nuevo->im = orig->im;
+
+    return nuevo;
+}
+
+double complejo_get_real(const complejo_t *compl){
+    if(compl != NULL){
+        return compl->re;
+    }
+}
+
+double complejo_get_imag(const complejo_t *compl){
+    if(compl != NULL){
+        return compl->im;
+    }
+}
+
+void complejo_set_real(complejo_t *compl, double re){
+    if(compl == NULL){
+        return;
+    }
+    compl->re = re;
+}
+
+void complejo_set_imag(complejo_t *compl, double im){
+    if(compl == NULL){
+        return;
+    }
+    compl->im = im;
+}
+
+complejo_t *complejo_conjugar(complejo_t *compl){
+    if(compl == NULL){
+        return NULL;
+    }
+    compl->im = -compl->im;
 }
