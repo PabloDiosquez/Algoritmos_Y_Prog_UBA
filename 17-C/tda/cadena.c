@@ -1,4 +1,4 @@
-// Implemente el TDA cadena, con las siguientes primitivas:
+// Implemente el TDA cadena.
 
 #include <stdlib.h>
 #include <string.h>
@@ -98,9 +98,6 @@ cadena_t *cadena_clonar(const cadena_t *orig) {
     return nueva;
 }
 
-#include <stdlib.h>
-#include <string.h>
-
 // Concatena el contenido de `cadena` al final de `dest`.
 /**
  * @brief Concatena la cadena de `cadena` al final de `dest`.
@@ -132,7 +129,62 @@ cadena_t *cadena_concatenar(cadena_t *dest, const cadena_t *cadena) {
     return dest;
 }
 
+// Copia el contenido de una cadena al campo `str` de una estructura cadena_t.
+/**
+ * @brief Copia la cadena `s` en el campo `str` de la estructura `dest`.
+ *
+ * @param dest Puntero a la estructura cadena_t que será modificada.
+ * @param s Puntero a la cadena de caracteres constante que será copiada.
+ * @return Puntero a la estructura `dest` si la operación es exitosa, o NULL si ocurre un error.
+ */
+cadena_t *cadena_strcpy(cadena_t *dest, const char *s) {
+    if (dest == NULL || s == NULL) {
+        return NULL;
+    }
 
-// cadena_t * cadena_strcpy(cadena_t *, const char *);
+    char *nueva = malloc(strlen(s) + 1);
+    if (nueva == NULL) {
+        return NULL;
+    }
 
-// cadena_t * cadena_strcat(cadena_t *, const char *);
+    if (dest->str != NULL) {
+        free(dest->str);
+    }
+
+    strcpy(nueva, s);
+    dest->str = nueva;
+
+    return dest;
+}
+
+
+// Concatena la cadena `s` al final de la cadena almacenada en `cadena->str`.
+/**
+ * @brief Concatena la cadena `s` al final de `cadena->str`.
+ *
+ * @param cadena Puntero a la estructura `cadena_t` que será modificada.
+ * @param s Puntero a la cadena que se desea concatenar.
+ * @return Puntero a la estructura `cadena` si la operación es exitosa, o NULL si ocurre un error.
+ */
+cadena_t *cadena_strcat(cadena_t *cadena, const char *s) {
+    if (cadena == NULL || s == NULL) {
+        return NULL;
+    }
+
+    size_t len_cadena = strlen(cadena->str);
+    size_t len_s = strlen(s);
+
+    char *nueva = malloc(len_cadena + len_s + 1);
+    if (nueva == NULL) {
+        return NULL; 
+    }
+
+    strcpy(nueva, cadena->str);
+
+    free(cadena->str);
+
+    strcpy(nueva + len_cadena, s);
+    cadena->str = nueva;
+
+    return cadena;
+}
